@@ -37,11 +37,16 @@ def make_operation(nr):
         else:
             result = nr / second_nr
 
+    result = round(result, 5)
     if zero_protection is False:
         print(f"{nr} {operation} {second_nr} = {result}")
     else:
-        print(f"Your number is {sum}")
+        print(f"Your number is {result}")
 
+    if input(f"Type 'y' to continue calculations with {result} or type 'n' to start new calculation:  ") == 'y':
+        make_operation(result)
+    else:
+        return
 
 while True:
     number = input("What's the first number?: ")
